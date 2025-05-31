@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-#eth_minmax.R - hourly min/max ETH price to MS Teams
+#eth_min_max.R - hourly min/max ETH price to MS Teams
 
 #packages
 suppressPackageStartupMessages({
