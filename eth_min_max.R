@@ -7,6 +7,7 @@ suppressPackageStartupMessages({
   library(httr)       
   library(jsonlite)   
   library(lubridate)  
+  library(teamr)
 })
 
 #configuration
@@ -21,23 +22,14 @@ start <- end - 60*60*1000
 k <- binance_klines(symbol = pair,
                     interval = "1m",
                     start_time = start,
-                    end_time   = end)            
-low  <- min(as.numeric(k$low_price))
-high <- max(as.numeric(k$high_price))
+                    end_time   = end)  
+                              
+low  <- min(as.numeric(k$low))
+high <- max(as.numeric(k$high))
 
-#compose Teams card
-body <- list(
-  "@type"    = "MessageCard",
-  "@context" = "http://schema.org/extensions",
-  summary    = "ETH hourly stats",
-  themeColor = "0078D7",
-  title      = "Hourly ETH/USDT summary",
-  text       = sprintf("**Min**: $%.2f\n**Max**: $%.2f", low, high)
-)
-
-#send
-stop_for_status(
-  POST(url, body = body, encode = "json")
-)
+cc <- connector_card$new(hookurl = url)
+cc$title("vashchenko_vasilisa@student.ceu.edu")
+cc$text(sprintf("**Min**: $%.2f\n**Max**: $%.2f", low, high))
+cc$send()
 
 cat("Posted to Teams:", format(now(tzone = "UTC")), "\n")
