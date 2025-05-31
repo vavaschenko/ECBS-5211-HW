@@ -43,6 +43,7 @@ Rscript -e "if (!requireNamespace('binancer', quietly = TRUE)) install.packages(
   post {
     failure {
       emailext (
+        to: 'vashchenko_vasilisa@student.ceu.edu',
         subject: "Jenkins ❌ Job '${env.JOB_NAME}' build #${env.BUILD_NUMBER} Failed",
         body: """
 Hello,
