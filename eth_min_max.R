@@ -14,8 +14,8 @@ url  <- Sys.getenv("TEAMS_WEBHOOK")
 pair <- "ETHUSDT"
 
 #time window
-end   <- as.numeric(Sys.time()) * 1000           
-start <- end 60*60*1000                       
+end   <- as.numeric(Sys.time()) * 1000
+start <- end - 60*60*1000                    
 
 #fetch data
 k <- binance_klines(symbol = pair,
