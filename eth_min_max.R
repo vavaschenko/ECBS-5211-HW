@@ -3,10 +3,7 @@
 
 #packages
 suppressPackageStartupMessages({
-  library(binancer)   
-  library(httr)       
-  library(jsonlite)   
-  library(lubridate)  
+  library(binancer)
   library(teamr)
 })
 
@@ -23,7 +20,7 @@ k <- binance_klines(symbol = pair,
                     interval = "1m",
                     start_time = start,
                     end_time   = end)  
-                              
+
 low  <- min(as.numeric(k$low))
 high <- max(as.numeric(k$high))
 
