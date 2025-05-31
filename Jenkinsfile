@@ -54,8 +54,7 @@ Check the console output here:
 ${env.BUILD_URL}console
 
 — Jenkins
-""",
-        recipientProviders: [[$class: 'DevelopersRecipientProvider']]
+"""
       )
     }
   }
