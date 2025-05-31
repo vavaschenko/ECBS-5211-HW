@@ -28,5 +28,3 @@ cc <- connector_card$new(hookurl = url)
 cc$title("vashchenko_vasilisa@student.ceu.edu")
 cc$text(sprintf("**Min**: $%.2f\n**Max**: $%.2f", low, high))
 cc$send()
-
-cat("Posted to Teams:", format(now(tzone = "UTC")), "\n")
